@@ -6,27 +6,27 @@ on:
       - main
 jobs:
   install-package:
-    runs-on: megabee-rasp
+    runs-on: self-hosted
     name: Cài đặt các gói cần thiết
     steps:
       - run: echo "Đang cài đặt các gói"
       - run: echo "Packages installed"
   build-ios: 
-    runs-on: megabee-rasp
+    runs-on: self-hosted
     name: Build ipa ios
     needs: install-package
     steps:
       - run: echo "Building ios"
       - run: echo "Ios completed"
   build-android: 
-    runs-on: megabee-rasp
+    runs-on: self-hosted
     name: Build apk android
     needs: install-package
     steps:
       - run: echo "Building android"
       - run: echo "Android completed"
   done:
-    runs-on: megabee-rasp
+    runs-on: self-hosted
     name: Đã build xong
     needs: [build-ios, build-android]
     steps:
