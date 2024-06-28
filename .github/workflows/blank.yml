@@ -6,27 +6,27 @@ on:
       - main
 jobs:
   install-package:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Cài đặt các gói cần thiết
     steps:
       - run: echo "Đang cài đặt các gói"
       - run: echo "Packages installed"
   build-ios: 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Build ipa ios
     needs: install-package
     steps:
       - run: echo "Building ios"
       - run: echo "Ios completed"
   build-android: 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Build apk android
     needs: install-package
     steps:
       - run: echo "Building android"
       - run: echo "Android completed"
   done:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Đã build xong
     needs: [build-ios, build-android]
     steps:
